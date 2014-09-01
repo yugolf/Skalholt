@@ -1,36 +1,43 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-
   <head>
-    <meta charset='utf-8'>
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="description" content="Skalholt : ">
+    <title>Skalholt by yugolf</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/respond.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="stylesheets/ie.css">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
-
-    <title>Skalholt</title>
   </head>
-
   <body>
+      <div id="header">
+        <nav>
+          <li class="fork"><a href="https://github.com/yugolf/Skalholt">View On GitHub</a></li>
+          <li class="downloads"><a href="https://github.com/yugolf/Skalholt/zipball/master">ZIP</a></li>
+          <li class="downloads"><a href="https://github.com/yugolf/Skalholt/tarball/master">TAR</a></li>
+          <li class="title">DOWNLOADS</li>
+        </nav>
+      </div><!-- end header -->
 
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/yugolf/Skalholt">View on GitHub</a>
+    <div class="wrapper">
 
-          <h1 id="project_title">Skalholt</h1>
-          <h2 id="project_tagline"></h2>
+      <section>
+        <div id="title">
+          <h1>Skalholt</h1>
+          <p></p>
+          <hr>
+          <span class="credits left">Project maintained by <a href="https://github.com/yugolf">yugolf</a></span>
+          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
+        </div>
 
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/yugolf/Skalholt/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/yugolf/Skalholt/tarball/master">Download this project as a tar.gz file</a>
-            </section>
-        </header>
-    </div>
-
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
         <h2>
 <a name="skalholt%E3%81%AE%E6%A6%82%E8%A6%81" class="anchor" href="#skalholt%E3%81%AE%E6%A6%82%E8%A6%81"><span class="octicon octicon-link"></span></a>Skalholtの概要</h2>
 
@@ -59,6 +66,8 @@
 <p>SkalholtはPlay FrameworkをベースとしたWebアプリケーションで「Typesafe Activator」のテンプレートとして提供します。</p>
 
 <p><img src="images/skalholt/cmd-activator-new.png" alt="activator new"></p>
+
+<p>Activatorから生成したプロジェクトは以下の構成になっています。</p>
 
 <pre><code>▶ Skalholt-Template
 　 ├ app
@@ -170,12 +179,12 @@ C:\work\myapp&gt;activator
 <li>http://localhost:9000/ へアクセス
 
 <ul>
-<li>メニューにはまだ何も表示されません。
-<img src="images/skalholt/menu-before.png" alt="no menu">
-</li>
+<li>メニューにはまだ何も表示されません。</li>
 </ul>
 </li>
-</ul><h2>
+</ul><p><img src="images/skalholt/menu-before.png" alt="no menu"></p>
+
+<h2>
 <a name="%E3%82%BD%E3%83%BC%E3%82%B9%E3%82%B3%E3%83%BC%E3%83%89%E3%81%AE%E3%82%B8%E3%82%A7%E3%83%8D%E3%83%AC%E3%83%BC%E3%83%88" class="anchor" href="#%E3%82%BD%E3%83%BC%E3%82%B9%E3%82%B3%E3%83%BC%E3%83%89%E3%81%AE%E3%82%B8%E3%82%A7%E3%83%8D%E3%83%AC%E3%83%BC%E3%83%88"><span class="octicon octicon-link"></span></a>ソースコードのジェネレート</h2>
 
 <ol>
@@ -198,9 +207,9 @@ C:\work\myapp&gt;activator
 </ul>
 </li>
 </ul><ol>
-<li>設計リポジトリの内容を編集し、ソースコードを再生成する。</li>
-<li>http://localhost:9001/ へアクセス</li>
-<li><p>「Screens」画面から変更したい画面を選択
+<li><p>設計リポジトリの内容を編集し、ソースコードを再生成する。
+　* http://localhost:9001/ へアクセス
+　* 「Screens」画面から変更したい画面を選択
 <img src="images/skalholt/capture-screens.png" alt="Screens"></p></li>
 </ol><ul>
 <li><p>「Screen Detail」画面に画面情報を編集
@@ -243,16 +252,9 @@ Skalholt 担当宛<br><a href="mailto:smart_dev@ml.tis.co.jp">smart_dev@ml.tis.c
 
 <p>SkalholtはApache License version2.0のもとにリリースされています。</p>
       </section>
-    </div>
 
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">Skalholt maintained by <a href="https://github.com/yugolf">yugolf</a></p>
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
-      </footer>
     </div>
-
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
               <script type="text/javascript">
             var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
             document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
@@ -263,7 +265,6 @@ Skalholt 担当宛<br><a href="mailto:smart_dev@ml.tis.co.jp">smart_dev@ml.tis.c
             pageTracker._trackPageview();
             } catch(err) {}
           </script>
-
 
   </body>
 </html>
