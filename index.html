@@ -1,79 +1,216 @@
 <!DOCTYPE html>
 <html>
-
   <head>
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="description" content="Skalholt : ">
-
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
-
-    <title>Skalholt</title>
+    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <title>Skalholt by yugolf</title>
   </head>
 
   <body>
+    <div id="container">
+      <div class="inner">
 
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/yugolf/Skalholt">View on GitHub</a>
-
-          <h1 id="project_title">Skalholt</h1>
-          <h2 id="project_tagline"></h2>
-
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/yugolf/Skalholt/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/yugolf/Skalholt/tarball/master">Download this project as a tar.gz file</a>
-            </section>
+        <header>
+          <h1>Skalholt</h1>
+          <h2></h2>
         </header>
-    </div>
 
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-        <h3>
-<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
+        <section id="downloads" class="clearfix">
+          <a href="https://github.com/yugolf/Skalholt/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
+          <a href="https://github.com/yugolf/Skalholt/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
+          <a href="https://github.com/yugolf/Skalholt" id="view-on-github" class="button"><span>View on GitHub</span></a>
+        </section>
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
+        <hr>
 
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
+        <section id="main_content">
+          <h2>
+<a name="skalholt%E3%81%AE%E6%A6%82%E8%A6%81" class="anchor" href="#skalholt%E3%81%AE%E6%A6%82%E8%A6%81"><span class="octicon octicon-link"></span></a>Skalholtの概要</h2>
+
+<p>SkalholtはScalaでのWebアプリケーションの開発を効率化するソースコード自動生成ツールです。データベーススキーマからPlay FrameworkとSlickに準拠したソースコードを生成に加え、スキーマからは得ることが出来ない情報を付加したソースコードの生成を実現します。</p>
+
+<p>DBスキーマを準備しSkalholtを実行すれば、シンプルなCRUDアプリケーションが作成できます。SkalholtはWebアプリケーションとして動作しますので、自動生成された設計内容をブラウザから編集することが出来ます。これによりScaffoldから一歩進んだアプリケーションを構築することが出来ます。</p>
+
+<p>Webアプリケーションを開発する際のフレームワークとしてスターンダードとなりつつあるPlay FrameworkとSlickを利用する際の開発を効率化すること、また、簡単に開発をスタートできることでScalaやPlayの習得に障壁を感じている方に対して、その習得を促進することを狙いとしています。</p>
+
+<h3>
+<a name="skalholt%E7%89%B9%E5%BE%B4" class="anchor" href="#skalholt%E7%89%B9%E5%BE%B4"><span class="octicon octicon-link"></span></a>Skalholt特徴</h3>
+
+<ol>
+<li>Play Framework、Slickに対応したソースコードを生成</li>
+<li>DBスキーマからソースコードを生成するScaffold機能</li>
+<li>アプリケーション構造を設計リポジトリ1. で保持・編集によりアプリケーションが成長</li>
+<li>「Typesafe Activator」のテンプレートとして提供するためインストール不要</li>
+</ol><h2>
+<a name="%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9%E3%83%8E%E3%83%BC%E3%83%88" class="anchor" href="#%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9%E3%83%8E%E3%83%BC%E3%83%88"><span class="octicon octicon-link"></span></a>リリースノート</h2>
+
+<ul>
+<li>2014/9/2 Ver0.1.0 New</li>
+</ul><h2>
+<a name="skalholt%E3%81%AE%E6%A7%8B%E6%88%90" class="anchor" href="#skalholt%E3%81%AE%E6%A7%8B%E6%88%90"><span class="octicon octicon-link"></span></a>Skalholtの構成</h2>
+
+<p>SkalholtはPlay FrameworkをベースとしたWebアプリケーションで「Typesafe Activator」のテンプレートとして提供します。</p>
+
+<pre><code>▶ Skalholt-Template
+　 ├ app
+　 │   自動生成したソースコード
+　 ├ conf
+　 │   設定ファイル
+　 ├ skalholt/lib
+　 │   Skalholtのライブラリ群
+　 ├ skalholt.h2.db
+　 │   設計リポジトリのデータファイル（H2 Database）
+　 └ skalholt.bat
+　　　　Skalholt起動バッチ
 </code></pre>
 
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
+<p>Skalholtは以下の様な流れで利用します。
+１．自動生成を実行すると業務データベースからアプリケーション生成に必要な情報を設計リポジトリに登録し、ソースコードを生成する。
+(1) 設計リポジトリの作成
+(2) 業務データベースからソースコードの生成
+(3) 設計リポジトリからソースコードの生成
+２．設計リポジトリの内容を編集し、ソースコードを再生成する。
+(4) 設計リポジトリの内容を編集
+(5) ソースコードの再生成</p>
+
+<p>構築するWebアプリケーションの構成はPlay Frameworkに準拠し、「Controller」「View」等は設計リポジトリから、「Model」等はDBスキーマから自動生成します。
+設計リポジトリは以下の様な構成です。</p>
+
+<p>Skalholtは以下のDBMSで動作確認を行っています。</p>
+
+<ul>
+<li>H2Database</li>
+<li>PostgreSQL</li>
+</ul><h2>
+<a name="%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB" class="anchor" href="#%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB"><span class="octicon octicon-link"></span></a>インストール</h2>
+
+<p>Skalholtを利用するために特別なツールのインストールは不要です。Typesafe Activatorさえインストールされていれば使用できます。
+Typesafe Activatorの実行に必要な環境と環境構築方法はTypesafe社のサイト「TYPESAFE REACTIVE PLATFORM GET STARTED」を参照してください。</p>
+
+<h2>
+<a name="%E8%A8%AD%E5%AE%9A" class="anchor" href="#%E8%A8%AD%E5%AE%9A"><span class="octicon octicon-link"></span></a>設定</h2>
+
+<ul>
+<li>業務データベースの準備
+** アプリケーションが使用するDBスキーマを準備し、「application.conf」に接続先情報を設定してください。
+** application.conf</li>
+</ul><pre><code>db.default.driver=org.h2.Driver
+db.default.url="jdbc:h2:tcp://localhost:9092/skalholt;SCHEMA=SAMPLE"
+db.default.user=sa
+db.default.password=""
+</code></pre>
+
+<p>データベース接続設定の詳細はPlay公式ドキュメント(リンク先はバージョン2.3)をご参照ください。</p>
+
+<h2>
+<a name="%E5%88%A9%E7%94%A8%E6%96%B9%E6%B3%95" class="anchor" href="#%E5%88%A9%E7%94%A8%E6%96%B9%E6%B3%95"><span class="octicon octicon-link"></span></a>利用方法</h2>
 
 <h3>
-<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
+<a name="%E5%89%8D%E6%BA%96%E5%82%99" class="anchor" href="#%E5%89%8D%E6%BA%96%E5%82%99"><span class="octicon octicon-link"></span></a>前準備</h3>
 
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
+<ul>
+<li>ブランクプロジェクトの作成</li>
+</ul><pre><code>C:\work&gt;activator new myapp skalholt
+</code></pre>
+
+<ul>
+<li>プロジェクトディレクトリでActivator起動</li>
+</ul><pre><code>C:\work&gt;cd myapp
+C:\work\myapp&gt;activator
+</code></pre>
+
+<ul>
+<li>コンパイル</li>
+</ul><pre><code>[myapp] $compile
+</code></pre>
+
+<ul>
+<li>H2 Database起動（設計リポジトリとサンプルの業務データベースとして利用します。）</li>
+</ul><pre><code>[myapp] $ h2-browser
+</code></pre>
+
+<ul>
+<li>アプリケーション起動</li>
+</ul><pre><code>[myapp] $ run
+</code></pre>
+
+<ul>
+<li>http://localhost:9000/ へアクセス
+** メニューにはまだ何も表示されません。</li>
+</ul><h2>
+<a name="%E3%82%BD%E3%83%BC%E3%82%B9%E3%82%B3%E3%83%BC%E3%83%89%E3%81%AE%E3%82%B8%E3%82%A7%E3%83%8D%E3%83%AC%E3%83%BC%E3%83%88" class="anchor" href="#%E3%82%BD%E3%83%BC%E3%82%B9%E3%82%B3%E3%83%BC%E3%83%89%E3%81%AE%E3%82%B8%E3%82%A7%E3%83%8D%E3%83%AC%E3%83%BC%E3%83%88"><span class="octicon octicon-link"></span></a>ソースコードのジェネレート</h2>
 
 <h3>
-<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
+<a name="%EF%BC%91%E8%87%AA%E5%8B%95%E7%94%9F%E6%88%90%E3%82%92%E5%AE%9F%E8%A1%8C%E3%81%99%E3%82%8B%E3%81%A8%E6%A5%AD%E5%8B%99%E3%83%87%E3%83%BC%E3%82%BF%E3%83%99%E3%83%BC%E3%82%B9%E3%81%8B%E3%82%89%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E7%94%9F%E6%88%90%E3%81%AB%E5%BF%85%E8%A6%81%E3%81%AA%E6%83%85%E5%A0%B1%E3%82%92%E8%A8%AD%E8%A8%88%E3%83%AA%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E3%81%AB%E7%99%BB%E9%8C%B2%E3%81%97%E3%82%BD%E3%83%BC%E3%82%B9%E3%82%B3%E3%83%BC%E3%83%89%E3%82%92%E7%94%9F%E6%88%90%E3%81%99%E3%82%8B" class="anchor" href="#%EF%BC%91%E8%87%AA%E5%8B%95%E7%94%9F%E6%88%90%E3%82%92%E5%AE%9F%E8%A1%8C%E3%81%99%E3%82%8B%E3%81%A8%E6%A5%AD%E5%8B%99%E3%83%87%E3%83%BC%E3%82%BF%E3%83%99%E3%83%BC%E3%82%B9%E3%81%8B%E3%82%89%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E7%94%9F%E6%88%90%E3%81%AB%E5%BF%85%E8%A6%81%E3%81%AA%E6%83%85%E5%A0%B1%E3%82%92%E8%A8%AD%E8%A8%88%E3%83%AA%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E3%81%AB%E7%99%BB%E9%8C%B2%E3%81%97%E3%82%BD%E3%83%BC%E3%82%B9%E3%82%B3%E3%83%BC%E3%83%89%E3%82%92%E7%94%9F%E6%88%90%E3%81%99%E3%82%8B"><span class="octicon octicon-link"></span></a>１．自動生成を実行すると業務データベースからアプリケーション生成に必要な情報を設計リポジトリに登録し、ソースコードを生成する。</h3>
 
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
+<ul>
+<li>Skalholtの起動</li>
+</ul><pre><code>C:\work\myapp&gt;skalholt-ui
+</code></pre>
 
-<h3>
-<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
+<ul>
+<li><p>http://localhost:9001/ へアクセス</p></li>
+<li><p>「Generate」画面にソースコード出力先と自動生成の元となるDBスキーマへの接続情報を設定し「Create design repository and generate source code」をクリック</p></li>
+<li>http://localhost:9000/ へアクセス
+** メニューにアプリケーションへアクセスするためのリンクが生成されています。</li>
+</ul><h3>
+<a name="%EF%BC%92%E8%A8%AD%E8%A8%88%E3%83%AA%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E3%81%AE%E5%86%85%E5%AE%B9%E3%82%92%E7%B7%A8%E9%9B%86%E3%81%97%E3%82%BD%E3%83%BC%E3%82%B9%E3%82%B3%E3%83%BC%E3%83%89%E3%82%92%E5%86%8D%E7%94%9F%E6%88%90%E3%81%99%E3%82%8B" class="anchor" href="#%EF%BC%92%E8%A8%AD%E8%A8%88%E3%83%AA%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E3%81%AE%E5%86%85%E5%AE%B9%E3%82%92%E7%B7%A8%E9%9B%86%E3%81%97%E3%82%BD%E3%83%BC%E3%82%B9%E3%82%B3%E3%83%BC%E3%83%89%E3%82%92%E5%86%8D%E7%94%9F%E6%88%90%E3%81%99%E3%82%8B"><span class="octicon octicon-link"></span></a>２．設計リポジトリの内容を編集し、ソースコードを再生成する。</h3>
 
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
+<ul>
+<li>http://localhost:9001/ へアクセス</li>
+<li><p>「Screens」画面から変更したい画面を選択</p></li>
+<li><p>「Screen Detail」画面に画面情報を編集</p></li>
+<li><p>画面右上の「Re Generate」からソースコードを再生成</p></li>
+<li>どんな変更ができるのか？
+** HTMLコンポーネントの種類を変更したい
+** バリデーションの内容を変更したい
+** 検索方法を変更したい
+** 入力項目を追加・削除したい。</li>
+</ul><h3>
+<a name="ui%E3%82%92%E5%88%A9%E7%94%A8%E3%81%99%E3%82%8B%E5%A0%B4%E5%90%88%E3%81%AF" class="anchor" href="#ui%E3%82%92%E5%88%A9%E7%94%A8%E3%81%99%E3%82%8B%E5%A0%B4%E5%90%88%E3%81%AF"><span class="octicon octicon-link"></span></a>UIを利用する場合は・・</h3>
 
-<h3>
-<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
+<pre><code>C:\work&gt;activator-ui
+</code></pre>
 
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
-      </section>
+<h2>
+<a name="%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E5%85%88" class="anchor" href="#%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E5%85%88"><span class="octicon octicon-link"></span></a>問い合わせ先</h2>
+
+<p>フィードバックや不明点等以下までお問い合わせ下さい。
+TIS株式会社
+コーポレート本部　戦略技術センター
+Skalholt 担当宛
+<a href="mailto:smart_dev@ml.tis.co.jp">smart_dev@ml.tis.co.jp</a></p>
+
+<h2>
+<a name="%E3%83%A9%E3%82%A4%E3%82%BB%E3%83%B3%E3%82%B9" class="anchor" href="#%E3%83%A9%E3%82%A4%E3%82%BB%E3%83%B3%E3%82%B9"><span class="octicon octicon-link"></span></a>ライセンス</h2>
+
+<p>SkalholtはApache License version2.0のもとにリリースされています。</p>
+        </section>
+
+        <footer>
+          Skalholt is maintained by <a href="https://github.com/yugolf">yugolf</a><br>
+          This page was generated by <a href="http://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
+        </footer>
+
+                  <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-54356347-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+      </div>
     </div>
-
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">Skalholt maintained by <a href="https://github.com/yugolf">yugolf</a></p>
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
-      </footer>
-    </div>
-
-    
-
   </body>
 </html>
