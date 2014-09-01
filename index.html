@@ -1,43 +1,36 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
+
   <head>
-    <meta charset="utf-8">
+    <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Skalholt by yugolf</title>
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script src="javascripts/respond.js"></script>
-    <!--[if lt IE 9]>
-      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <!--[if lt IE 8]>
-    <link rel="stylesheet" href="stylesheets/ie.css">
-    <![endif]-->
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="description" content="Skalholt : ">
 
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Skalholt</title>
   </head>
+
   <body>
-      <div id="header">
-        <nav>
-          <li class="fork"><a href="https://github.com/yugolf/Skalholt">View On GitHub</a></li>
-          <li class="downloads"><a href="https://github.com/yugolf/Skalholt/zipball/master">ZIP</a></li>
-          <li class="downloads"><a href="https://github.com/yugolf/Skalholt/tarball/master">TAR</a></li>
-          <li class="title">DOWNLOADS</li>
-        </nav>
-      </div><!-- end header -->
 
-    <div class="wrapper">
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/yugolf/Skalholt">View on GitHub</a>
 
-      <section>
-        <div id="title">
-          <h1>Skalholt</h1>
-          <p></p>
-          <hr>
-          <span class="credits left">Project maintained by <a href="https://github.com/yugolf">yugolf</a></span>
-          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
-        </div>
+          <h1 id="project_title">Skalholt</h1>
+          <h2 id="project_tagline"></h2>
 
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/yugolf/Skalholt/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/yugolf/Skalholt/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
         <h2>
 <a name="skalholt%E3%81%AE%E6%A6%82%E8%A6%81" class="anchor" href="#skalholt%E3%81%AE%E6%A6%82%E8%A6%81"><span class="octicon octicon-link"></span></a>Skalholtの概要</h2>
 
@@ -64,6 +57,8 @@
 <a name="skalholt%E3%81%AE%E6%A7%8B%E6%88%90" class="anchor" href="#skalholt%E3%81%AE%E6%A7%8B%E6%88%90"><span class="octicon octicon-link"></span></a>Skalholtの構成</h2>
 
 <p>SkalholtはPlay FrameworkをベースとしたWebアプリケーションで「Typesafe Activator」のテンプレートとして提供します。</p>
+
+<p><img src="images/skalholt/cmd-activator-new.png" alt="activator new"></p>
 
 <pre><code>▶ Skalholt-Template
 　 ├ app
@@ -98,8 +93,12 @@
 <li>(5) ソースコードの再生成</li>
 </ul>
 </li>
-</ol><p>構築するWebアプリケーションの構成はPlay Frameworkに準拠し、「Controller」「View」等は設計リポジトリから、「Model」等はDBスキーマから自動生成します。
+</ol><p><img src="images/skalholt/generate-flow.png" alt="Generate flow"></p>
+
+<p>構築するWebアプリケーションの構成はPlay Frameworkに準拠し、「Controller」「View」等は設計リポジトリから、「Model」等はDBスキーマから自動生成します。
 設計リポジトリは以下の様な構成です。</p>
+
+<p><img src="images/skalholt/design-repository.png" alt="Design Repositoy"></p>
 
 <p>Skalholtは以下のDBMSで動作確認を行っています。</p>
 
@@ -171,7 +170,9 @@ C:\work\myapp&gt;activator
 <li>http://localhost:9000/ へアクセス
 
 <ul>
-<li>メニューにはまだ何も表示されません。</li>
+<li>メニューにはまだ何も表示されません。
+<img src="images/skalholt/menu-before.png" alt="no menu">
+</li>
 </ul>
 </li>
 </ul><h2>
@@ -184,21 +185,26 @@ C:\work\myapp&gt;activator
 </code></pre>
 
 <ul>
-<li><p>http://localhost:9001/ へアクセス</p></li>
+<li><p>http://localhost:9001/ へアクセス
+<img src="images/skalholt/capture-generator.png" alt="Source Code Generate"></p></li>
 <li><p>「Generate」画面にソースコード出力先と自動生成の元となるDBスキーマへの接続情報を設定し「Create design repository and generate source code」をクリック</p></li>
 <li>
 <p>http://localhost:9000/ へアクセス</p>
 
 <ul>
-<li>メニューにアプリケーションへアクセスするためのリンクが生成されています。</li>
+<li>メニューにアプリケーションへアクセスするためのリンクが生成されています。
+<img src="images/skalholt/menu-after.png" alt="created menu">
+</li>
 </ul>
 </li>
 </ul><ol>
 <li>設計リポジトリの内容を編集し、ソースコードを再生成する。</li>
 <li>http://localhost:9001/ へアクセス</li>
-<li><p>「Screens」画面から変更したい画面を選択</p></li>
+<li><p>「Screens」画面から変更したい画面を選択
+<img src="images/skalholt/capture-screens.png" alt="Screens"></p></li>
 </ol><ul>
-<li><p>「Screen Detail」画面に画面情報を編集</p></li>
+<li><p>「Screen Detail」画面に画面情報を編集
+<img src="images/skalholt/capture-screen-detail.png" alt="Screen Detail"></p></li>
 <li><p>画面右上の「Re Generate」からソースコードを再生成</p></li>
 <li>どんな変更ができるのか？
 
@@ -206,13 +212,16 @@ C:\work\myapp&gt;activator
 <li>HTMLコンポーネントの種類を変更したい</li>
 <li>バリデーションの内容を変更したい</li>
 <li>検索方法を変更したい</li>
-<li>入力項目を追加・削除したい。</li>
+<li>入力項目を追加・削除したい。
+<img src="images/skalholt/capture-screen-detail-customize.png" alt="Edit Screen Detail">
+</li>
 </ul>
 </li>
 </ul><h3>
 <a name="activator%E3%81%AEui%E3%82%92%E5%88%A9%E7%94%A8%E3%81%99%E3%82%8B" class="anchor" href="#activator%E3%81%AEui%E3%82%92%E5%88%A9%E7%94%A8%E3%81%99%E3%82%8B"><span class="octicon octicon-link"></span></a>ActivatorのUIを利用する</h3>
 
-<p>Typesafe ActivatorのUIを利用する場合は、Activatorをインストールしたディレクトリにある「activator」（Linux ｏｒ Macの場合）、または、「avtivator.bat」（Windowsの場合）を実行してください。</p>
+<p>Typesafe ActivatorのUIを利用する場合は、Activatorをインストールしたディレクトリにある「activator」（Linux ｏｒ Macの場合）、または、「avtivator.bat」（Windowsの場合）を実行してください。
+<img src="images/skalholt/capture-activator-ui.png" alt="Activator UI"></p>
 
 <p>また、コマンドプロンプトから「activator ui」の実行により起動することも出来ます。</p>
 
@@ -234,9 +243,16 @@ Skalholt 担当宛<br><a href="mailto:smart_dev@ml.tis.co.jp">smart_dev@ml.tis.c
 
 <p>SkalholtはApache License version2.0のもとにリリースされています。</p>
       </section>
-
     </div>
-    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Skalholt maintained by <a href="https://github.com/yugolf">yugolf</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
               <script type="text/javascript">
             var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
             document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
@@ -247,6 +263,7 @@ Skalholt 担当宛<br><a href="mailto:smart_dev@ml.tis.co.jp">smart_dev@ml.tis.c
             pageTracker._trackPageview();
             } catch(err) {}
           </script>
+
 
   </body>
 </html>
