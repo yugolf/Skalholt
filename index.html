@@ -1,36 +1,43 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-
   <head>
-    <meta charset='utf-8'>
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="description" content="Skalholt : ">
+    <title>Skalholt by yugolf</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/respond.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="stylesheets/ie.css">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
-
-    <title>Skalholt</title>
   </head>
-
   <body>
+      <div id="header">
+        <nav>
+          <li class="fork"><a href="https://github.com/yugolf/Skalholt">View On GitHub</a></li>
+          <li class="downloads"><a href="https://github.com/yugolf/Skalholt/zipball/master">ZIP</a></li>
+          <li class="downloads"><a href="https://github.com/yugolf/Skalholt/tarball/master">TAR</a></li>
+          <li class="title">DOWNLOADS</li>
+        </nav>
+      </div><!-- end header -->
 
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/yugolf/Skalholt">View on GitHub</a>
+    <div class="wrapper">
 
-          <h1 id="project_title">Skalholt</h1>
-          <h2 id="project_tagline"></h2>
+      <section>
+        <div id="title">
+          <h1>Skalholt</h1>
+          <p></p>
+          <hr>
+          <span class="credits left">Project maintained by <a href="https://github.com/yugolf">yugolf</a></span>
+          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
+        </div>
 
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/yugolf/Skalholt/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/yugolf/Skalholt/tarball/master">Download this project as a tar.gz file</a>
-            </section>
-        </header>
-    </div>
-
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
         <h2>
 <a name="skalholt%E3%81%AE%E6%A6%82%E8%A6%81" class="anchor" href="#skalholt%E3%81%AE%E6%A6%82%E8%A6%81"><span class="octicon octicon-link"></span></a>Skalholtの概要</h2>
 
@@ -71,16 +78,27 @@
 　　　　Skalholt起動バッチ
 </code></pre>
 
-<p>Skalholtは以下の様な流れで利用します。
-１．自動生成を実行すると業務データベースからアプリケーション生成に必要な情報を設計リポジトリに登録し、ソースコードを生成する。
-(1) 設計リポジトリの作成
-(2) 業務データベースからソースコードの生成
-(3) 設計リポジトリからソースコードの生成
-２．設計リポジトリの内容を編集し、ソースコードを再生成する。
-(4) 設計リポジトリの内容を編集
-(5) ソースコードの再生成</p>
+<p>Skalholtは以下の様な流れで利用します。</p>
 
-<p>構築するWebアプリケーションの構成はPlay Frameworkに準拠し、「Controller」「View」等は設計リポジトリから、「Model」等はDBスキーマから自動生成します。
+<ol>
+<li>
+<p>自動生成を実行すると業務データベースからアプリケーション生成に必要な情報を設計リポジトリに登録し、ソースコードを生成する。</p>
+
+<ul>
+<li>(1) 設計リポジトリの作成</li>
+<li>(2) 業務データベースからソースコードの生成</li>
+<li>(3) 設計リポジトリからソースコードの生成</li>
+</ul>
+</li>
+<li>
+<p>設計リポジトリの内容を編集し、ソースコードを再生成する。</p>
+
+<ul>
+<li>(4) 設計リポジトリの内容を編集</li>
+<li>(5) ソースコードの再生成</li>
+</ul>
+</li>
+</ol><p>構築するWebアプリケーションの構成はPlay Frameworkに準拠し、「Controller」「View」等は設計リポジトリから、「Model」等はDBスキーマから自動生成します。
 設計リポジトリは以下の様な構成です。</p>
 
 <p>Skalholtは以下のDBMSで動作確認を行っています。</p>
@@ -99,9 +117,15 @@ Typesafe Activatorの実行に必要な環境と環境構築方法はTypesafe社
 
 <ul>
 <li>業務データベースの準備
-** アプリケーションが使用するDBスキーマを準備し、「application.conf」に接続先情報を設定してください。
-** application.conf</li>
-</ul><pre><code>db.default.driver=org.h2.Driver
+
+<ul>
+<li>アプリケーションが使用するDBスキーマを準備し、「application.conf」に接続先情報を設定してください。</li>
+</ul>
+</li>
+</ul><h4>
+<a name="applicationconf" class="anchor" href="#applicationconf"><span class="octicon octicon-link"></span></a>application.conf</h4>
+
+<pre><code>db.default.driver=org.h2.Driver
 db.default.url="jdbc:h2:tcp://localhost:9092/skalholt;SCHEMA=SAMPLE"
 db.default.user=sa
 db.default.password=""
@@ -145,36 +169,46 @@ C:\work\myapp&gt;activator
 
 <ul>
 <li>http://localhost:9000/ へアクセス
-** メニューにはまだ何も表示されません。</li>
+
+<ul>
+<li>メニューにはまだ何も表示されません。</li>
+</ul>
+</li>
 </ul><h2>
 <a name="%E3%82%BD%E3%83%BC%E3%82%B9%E3%82%B3%E3%83%BC%E3%83%89%E3%81%AE%E3%82%B8%E3%82%A7%E3%83%8D%E3%83%AC%E3%83%BC%E3%83%88" class="anchor" href="#%E3%82%BD%E3%83%BC%E3%82%B9%E3%82%B3%E3%83%BC%E3%83%89%E3%81%AE%E3%82%B8%E3%82%A7%E3%83%8D%E3%83%AC%E3%83%BC%E3%83%88"><span class="octicon octicon-link"></span></a>ソースコードのジェネレート</h2>
 
-<h3>
-<a name="%EF%BC%91%E8%87%AA%E5%8B%95%E7%94%9F%E6%88%90%E3%82%92%E5%AE%9F%E8%A1%8C%E3%81%99%E3%82%8B%E3%81%A8%E6%A5%AD%E5%8B%99%E3%83%87%E3%83%BC%E3%82%BF%E3%83%99%E3%83%BC%E3%82%B9%E3%81%8B%E3%82%89%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E7%94%9F%E6%88%90%E3%81%AB%E5%BF%85%E8%A6%81%E3%81%AA%E6%83%85%E5%A0%B1%E3%82%92%E8%A8%AD%E8%A8%88%E3%83%AA%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E3%81%AB%E7%99%BB%E9%8C%B2%E3%81%97%E3%82%BD%E3%83%BC%E3%82%B9%E3%82%B3%E3%83%BC%E3%83%89%E3%82%92%E7%94%9F%E6%88%90%E3%81%99%E3%82%8B" class="anchor" href="#%EF%BC%91%E8%87%AA%E5%8B%95%E7%94%9F%E6%88%90%E3%82%92%E5%AE%9F%E8%A1%8C%E3%81%99%E3%82%8B%E3%81%A8%E6%A5%AD%E5%8B%99%E3%83%87%E3%83%BC%E3%82%BF%E3%83%99%E3%83%BC%E3%82%B9%E3%81%8B%E3%82%89%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E7%94%9F%E6%88%90%E3%81%AB%E5%BF%85%E8%A6%81%E3%81%AA%E6%83%85%E5%A0%B1%E3%82%92%E8%A8%AD%E8%A8%88%E3%83%AA%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E3%81%AB%E7%99%BB%E9%8C%B2%E3%81%97%E3%82%BD%E3%83%BC%E3%82%B9%E3%82%B3%E3%83%BC%E3%83%89%E3%82%92%E7%94%9F%E6%88%90%E3%81%99%E3%82%8B"><span class="octicon octicon-link"></span></a>１．自動生成を実行すると業務データベースからアプリケーション生成に必要な情報を設計リポジトリに登録し、ソースコードを生成する。</h3>
-
-<ul>
+<ol>
+<li>自動生成を実行すると業務データベースからアプリケーション生成に必要な情報を設計リポジトリに登録し、ソースコードを生成する。</li>
 <li>Skalholtの起動</li>
-</ul><pre><code>C:\work\myapp&gt;skalholt-ui
+</ol><pre><code>C:\work\myapp&gt;skalholt-ui
 </code></pre>
 
 <ul>
 <li><p>http://localhost:9001/ へアクセス</p></li>
 <li><p>「Generate」画面にソースコード出力先と自動生成の元となるDBスキーマへの接続情報を設定し「Create design repository and generate source code」をクリック</p></li>
-<li>http://localhost:9000/ へアクセス
-** メニューにアプリケーションへアクセスするためのリンクが生成されています。</li>
-</ul><h3>
-<a name="%EF%BC%92%E8%A8%AD%E8%A8%88%E3%83%AA%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E3%81%AE%E5%86%85%E5%AE%B9%E3%82%92%E7%B7%A8%E9%9B%86%E3%81%97%E3%82%BD%E3%83%BC%E3%82%B9%E3%82%B3%E3%83%BC%E3%83%89%E3%82%92%E5%86%8D%E7%94%9F%E6%88%90%E3%81%99%E3%82%8B" class="anchor" href="#%EF%BC%92%E8%A8%AD%E8%A8%88%E3%83%AA%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E3%81%AE%E5%86%85%E5%AE%B9%E3%82%92%E7%B7%A8%E9%9B%86%E3%81%97%E3%82%BD%E3%83%BC%E3%82%B9%E3%82%B3%E3%83%BC%E3%83%89%E3%82%92%E5%86%8D%E7%94%9F%E6%88%90%E3%81%99%E3%82%8B"><span class="octicon octicon-link"></span></a>２．設計リポジトリの内容を編集し、ソースコードを再生成する。</h3>
+<li>
+<p>http://localhost:9000/ へアクセス</p>
 
 <ul>
+<li>メニューにアプリケーションへアクセスするためのリンクが生成されています。</li>
+</ul>
+</li>
+</ul><ol>
+<li>設計リポジトリの内容を編集し、ソースコードを再生成する。</li>
 <li>http://localhost:9001/ へアクセス</li>
 <li><p>「Screens」画面から変更したい画面を選択</p></li>
+</ol><ul>
 <li><p>「Screen Detail」画面に画面情報を編集</p></li>
 <li><p>画面右上の「Re Generate」からソースコードを再生成</p></li>
 <li>どんな変更ができるのか？
-** HTMLコンポーネントの種類を変更したい
-** バリデーションの内容を変更したい
-** 検索方法を変更したい
-** 入力項目を追加・削除したい。</li>
+
+<ul>
+<li>HTMLコンポーネントの種類を変更したい</li>
+<li>バリデーションの内容を変更したい</li>
+<li>検索方法を変更したい</li>
+<li>入力項目を追加・削除したい。</li>
+</ul>
+</li>
 </ul><h3>
 <a name="activator%E3%81%AEui%E3%82%92%E5%88%A9%E7%94%A8%E3%81%99%E3%82%8B" class="anchor" href="#activator%E3%81%AEui%E3%82%92%E5%88%A9%E7%94%A8%E3%81%99%E3%82%8B"><span class="octicon octicon-link"></span></a>ActivatorのUIを利用する</h3>
 
@@ -190,27 +224,19 @@ C:\work\myapp&gt;activator
 <h2>
 <a name="%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E5%85%88" class="anchor" href="#%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E5%85%88"><span class="octicon octicon-link"></span></a>問い合わせ先</h2>
 
-<p>フィードバックや不明点等以下までお問い合わせ下さい。
-TIS株式会社
-コーポレート本部　戦略技術センター
-Skalholt 担当宛
-<a href="mailto:smart_dev@ml.tis.co.jp">smart_dev@ml.tis.co.jp</a></p>
+<p>フィードバックや不明点等以下までお問い合わせ下さい。<br>
+TIS株式会社<br>
+コーポレート本部　戦略技術センター<br>
+Skalholt 担当宛<br><a href="mailto:smart_dev@ml.tis.co.jp">smart_dev@ml.tis.co.jp</a></p>
 
 <h2>
 <a name="%E3%83%A9%E3%82%A4%E3%82%BB%E3%83%B3%E3%82%B9" class="anchor" href="#%E3%83%A9%E3%82%A4%E3%82%BB%E3%83%B3%E3%82%B9"><span class="octicon octicon-link"></span></a>ライセンス</h2>
 
 <p>SkalholtはApache License version2.0のもとにリリースされています。</p>
       </section>
-    </div>
 
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">Skalholt maintained by <a href="https://github.com/yugolf">yugolf</a></p>
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
-      </footer>
     </div>
-
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
               <script type="text/javascript">
             var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
             document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
@@ -221,7 +247,6 @@ Skalholt 担当宛
             pageTracker._trackPageview();
             } catch(err) {}
           </script>
-
 
   </body>
 </html>
