@@ -106,16 +106,11 @@
 Typesafe Activatorの実行に必要な環境と環境構築方法はTypesafe.comの<a href="http://typesafe.com/platform/getstarted">「TYPESAFE REACTIVE PLATFORM GET STARTED」</a>を参照してください。</p>
 
 <h2>
-<a name="%E8%A8%AD%E5%AE%9A" class="anchor" href="#%E8%A8%AD%E5%AE%9A"><span class="octicon octicon-link"></span></a>設定</h2>
+<a name="%E8%A8%AD%E5%AE%9A%E6%A5%AD%E5%8B%99%E3%83%87%E3%83%BC%E3%82%BF%E3%83%99%E3%83%BC%E3%82%B9%E3%81%AE%E6%BA%96%E5%82%99" class="anchor" href="#%E8%A8%AD%E5%AE%9A%E6%A5%AD%E5%8B%99%E3%83%87%E3%83%BC%E3%82%BF%E3%83%99%E3%83%BC%E3%82%B9%E3%81%AE%E6%BA%96%E5%82%99"><span class="octicon octicon-link"></span></a>設定(業務データベースの準備)</h2>
 
-<ul>
-<li>業務データベースの準備
+<p>アプリケーションが使用するDBスキーマを準備し、「application.conf」に接続先情報を設定してください。</p>
 
-<ul>
-<li>アプリケーションが使用するDBスキーマを準備し、「application.conf」に接続先情報を設定してください。</li>
-</ul>
-</li>
-</ul><h4>
+<h4>
 <a name="applicationconf" class="anchor" href="#applicationconf"><span class="octicon octicon-link"></span></a>application.conf</h4>
 
 <pre><code>db.default.driver=org.h2.Driver
@@ -124,7 +119,7 @@ db.default.user=sa
 db.default.password=""
 </code></pre>
 
-<p>データベース接続設定の詳細は<a href="https://www.playframework.com/documentation/2.3.x/ScalaDatabase">Play公式ドキュメント(リンク先はバージョン2.3)</a>をご参照ください。</p>
+<p>データベース接続設定の詳細は<a href="https://www.playframework.com/documentation/2.3.x/ScalaDatabase">Play公式ドキュメント(リンク先はバージョン2.3)</a>を参照してください。</p>
 
 <h2>
 <a name="%E5%88%A9%E7%94%A8%E6%96%B9%E6%B3%95" class="anchor" href="#%E5%88%A9%E7%94%A8%E6%96%B9%E6%B3%95"><span class="octicon octicon-link"></span></a>利用方法</h2>
@@ -140,13 +135,12 @@ db.default.password=""
 <p>　※Typesafe ActivatorはUIを利用してWebブラウザ上での操作によりブランクプロジェクトを作成することが出来ます。作成方法は「ActivatorのUIを利用する」を参照してください。</p>
 
 <ul>
-<li>プロジェクトディレクトリでActivator起動</li>
-</ul><pre><code>C:\work&gt;cd myapp
-C:\work\myapp&gt;activator
-</code></pre>
-
-<ul>
-<li>コンパイル</li>
+<li><p>プロジェクトディレクトリでActivator起動
+　<code>
+　C:\work&gt;cd myapp
+　C:\work\myapp&gt;activator
+　</code></p></li>
+<li><p>コンパイル</p></li>
 </ul><pre><code>[myapp] $compile
 </code></pre>
 
